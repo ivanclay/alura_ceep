@@ -20,7 +20,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ### About
 
-This project is the minimum expected result of training [Udemy](https://www.udemy.com/course/formacao-angular-inicio-criando-7-projetos/).
+This project is the minimum expected result of training [Alura ReactJs](https://cursos.alura.com.br/course/react-js).
 
 #
 ### Available Scripts
