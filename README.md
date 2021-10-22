@@ -22,6 +22,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 This project is the minimum expected result of training [Udemy](https://www.udemy.com/course/formacao-angular-inicio-criando-7-projetos/).
 
+#
 ### Available Scripts
 
 In the project directory, you can run:
