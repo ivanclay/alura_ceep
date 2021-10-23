@@ -5,11 +5,26 @@ import "./App.css";
 import "./index.css";
 
 class App extends Component {
+
+  constructor(){
+    super();
+    this.state = {
+      notes: []
+    };
+  }
+
+  createNote(title, note){
+    const newNote = {title,note};
+    const newNotes = [...this.state.notes, newNote];
+    const newState = { notes: newNotes};
+    this.setState(newState);
+  }
+
   render() {
     return (
       <section className="container">
-        <RegistrationForm />
-        <NoteList />
+        <RegistrationForm createNote={this.createNote.bind(this)} />
+        <NoteList notes={this.state.notes} />
       </section>
     );
   }
