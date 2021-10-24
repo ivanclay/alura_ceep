@@ -13,6 +13,7 @@ A simple project as a way to study ReactJs.
     - [ ] ?
 - [x] Create components
 - [x] Stylize components
+- [x] Add category component
     
 
 ## React version (17.0.2)
