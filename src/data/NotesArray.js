@@ -26,8 +26,8 @@ export default class NotesArray {
         this._subscribers.push(f);
     }
 
-    unsubscribe(){
-        
+    unsubscribe(f){
+        this._subscribers.filter(x => x !== f);
     }
 }
 

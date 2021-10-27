@@ -1,9 +1,11 @@
 .container {
     display: flex;
+    max-width: 40%;
   }
   
   .main-container{
     flex-grow: 3;
+    max-width: 50%;
   }
 
   :root {

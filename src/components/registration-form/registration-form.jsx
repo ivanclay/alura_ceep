@@ -9,6 +9,7 @@ class RegistrationForm extends Component {
     this.note = "";
     this.category = "no category";
     this.state = {categories: []}
+    this._newCategories = this._newCategories.bind(this);
   }
 
   _newCategories(categories){
@@ -16,9 +17,12 @@ class RegistrationForm extends Component {
   }
 
   componentDidMount(){
-      this.props.categories.subscribe(this._newCategories.bind(this));
+    this.props.categories.subscribe(this._newCategories);
   }
 
+  componentWillUnmount(){
+      this.props.categories.unsubscribe(this._newCategories);
+  }
 
   _handleOnChangeTitle(event){
     event.stopPropagation();
@@ -52,7 +56,7 @@ class RegistrationForm extends Component {
             className="registration-form-input"
             onChange={this._hadleChangeCategory.bind(this)}
         >
-          <option>Sem categoria</option>
+          <option>No category</option>
           {this.state.categories.map((category, index) => {
             return <option key={index}>{category}</option>
           })}

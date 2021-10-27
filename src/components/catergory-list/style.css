@@ -1,13 +1,14 @@
 .category-list{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     margin-top: 12px;
+    justify-content: space-between;
 }
 .category-list-list{
     flex: 1;
     display: flex;
-    flex-direction: row;
     justify-content: space-evenly;
+    margin-top: 10px;
 }
 .category-list-item{
     background-color: var(--secundaria);
@@ -16,6 +17,13 @@
     border-radius: 10px;
     font-family: Arial, Helvetica, sans-serif;
 }
+
 .category-list-input{
     margin-right: 20px;
+    margin-left: 20px;
+    border: 1px solid #CCC;
+    outline: 0;
+    border-radius: 20px;
+    height: 30px;
+    padding-left: 10px;
 }

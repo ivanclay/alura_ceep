@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import "./style.css";
 
 class CategoryList extends React.Component {
@@ -6,6 +6,8 @@ class CategoryList extends React.Component {
     constructor(){
         super();
         this.state = {categories: []}
+        this._newCategories = this._newCategories.bind(this);
+        this._inputValue = "";
     }
 
     _newCategories(categories){
@@ -13,10 +15,12 @@ class CategoryList extends React.Component {
     }
 
     componentDidMount(){
-        this.props.categories.subscribe(this._newCategories.bind(this));
+        this.props.categories.subscribe(this._newCategories);
     }
 
-    
+    componentWillUnmount(){
+        this.props.categories.unsubscribe(this._newCategories);
+    }
 
     _hadleInputEvent(event){
         if(event.key === "Enter"){
@@ -27,17 +31,17 @@ class CategoryList extends React.Component {
     render() { 
         return (
             <section className="category-list">
-                <ul className="category-list-list">
-                    {this.state.categories.map((category, index) => {
-                        return <li className="category-list-item" key={index}>{category}</li>
-                    })}
-                </ul>
-                <input 
+                 <input 
                     type="text" 
                     className="category-list-input"
                     placeholder="add category"
                     onKeyUp={this._hadleInputEvent.bind(this)}
                 />
+                <ul className="category-list-list">
+                    {this.state.categories.map((category, index) => {
+                        return <li className="category-list-item" key={index}>{category}</li>
+                    })}
+                </ul>
             </section>
         );
     }
