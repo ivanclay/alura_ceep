@@ -16,6 +16,7 @@ A simple project as a way to study ReactJs.
 - [x] Add category component
 - [x] Implement Add categories
 - [x] Add select categories
+- [x] Implement observables
     
 
 ## React version (17.0.2)
