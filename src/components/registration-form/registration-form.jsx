@@ -8,18 +8,26 @@ class RegistrationForm extends Component {
     this.title = "";
     this.note = "";
     this.category = "no category";
+    this.state = {categories: []}
   }
+
+  _newCategories(categories){
+      this.setState({...this.state, categories});
+  }
+
+  componentDidMount(){
+      this.props.categories.subscribe(this._newCategories.bind(this));
+  }
+
 
   _handleOnChangeTitle(event){
     event.stopPropagation();
     this.title = event.target.value;
-    // console.log(this.title);
   }
 
   _handleOnChangeNote(event){
     event.stopPropagation();
     this.note = event.target.value;
-    // console.log(this.note);
   }
 
   _hadleChangeCategory(event){
@@ -45,7 +53,7 @@ class RegistrationForm extends Component {
             onChange={this._hadleChangeCategory.bind(this)}
         >
           <option>Sem categoria</option>
-          {this.props.categories.map((category, index) => {
+          {this.state.categories.map((category, index) => {
             return <option key={index}>{category}</option>
           })}
         </select>

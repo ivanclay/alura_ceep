@@ -17,6 +17,7 @@ A simple project as a way to study ReactJs.
 - [x] Implement Add categories
 - [x] Add select categories
 - [x] Implement observables
+- [x] Implement did mount method
     
 
 ## React version (17.0.2)

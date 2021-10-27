@@ -5,13 +5,15 @@ export default class NotesArray {
         this._subscribers = [];
     }
 
-    addNote(title, note, category){
+    createNote(title, note, category){
         const newNote = new Note(title, note, category);
         this.notes.push(newNote);
+        this.notifySubscribers();
     }
 
     removeNote(index){
         this.notes.splice(index,1);
+        this.notifySubscribers();
     }
 
     notifySubscribers(){

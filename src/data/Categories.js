@@ -6,7 +6,7 @@ export default class Categories {
     }
 
     addCategory(newCategory){
-        console.log(this.categories);
+        this.notifySubscribers();
         this.categories.push(newCategory);
     }
 
