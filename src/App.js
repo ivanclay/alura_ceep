@@ -10,7 +10,8 @@ class App extends Component {
   constructor(){
     super();
     this.state = {
-      notes: []
+      notes: [],
+      categories: ["Work", "Sport"]
     };
   }
 
@@ -28,12 +29,21 @@ class App extends Component {
     this.setState(newState);
   }
 
+  addCategory(categoryName){
+    const newCategories = [...this.state.categories, categoryName];
+    const newState = { categories: newCategories};
+    this.setState(newState);
+  }
+
   render() {
     return (
       <section className="container">
         <RegistrationForm createNote={this.createNote.bind(this)} />
         <main className="main-container">
-          <CategoryList />
+          <CategoryList 
+            addCategory={this.addCategory.bind(this)}
+            categories={this.state.categories} 
+          />
         <NoteList notes={this.state.notes} removeNote={this.removeNote.bind(this)} />
         </main>
         
