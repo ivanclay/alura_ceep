@@ -12,11 +12,14 @@ class NoteCard extends Component {
     return (
       <section className="note-card">
         <header className="note-card-header">
-          <h3 className="note-card-title">{ this.props.title }</h3>
-          <DeleteSVG 
-            onClick={this.remove.bind(this)} 
-            className="note-card-trash"
-          />
+          <div className="note-card-header-div">
+            <h3 className="note-card-title">{ this.props.title }</h3>
+            <DeleteSVG 
+              onClick={this.remove.bind(this)} 
+              className="note-card-trash"
+            />
+          </div>
+          <h6>{this.props.category}</h6>
           <hr/>
         </header>
         <p className="note-card-text">{ this.props.note}</p>

@@ -21,6 +21,12 @@
   width: 100%;
 }
 
+.note-card-header-div{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
 .note-card-title {
     font-size: 1.6em;
     margin-right: 12px;

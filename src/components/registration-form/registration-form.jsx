@@ -7,6 +7,7 @@ class RegistrationForm extends Component {
     super(props);
     this.title = "";
     this.note = "";
+    this.category = "no category";
   }
 
   _handleOnChangeTitle(event){
@@ -21,10 +22,15 @@ class RegistrationForm extends Component {
     // console.log(this.note);
   }
 
+  _hadleChangeCategory(event){
+    event.stopPropagation();
+    this.category = event.target.value;
+  }
+
   _createNote(event){
     event.preventDefault();
     event.stopPropagation();
-    this.props.createNote(this.title, this.note);
+    this.props.createNote(this.title, this.note, this.category);
   }
 
   render() {
@@ -34,6 +40,15 @@ class RegistrationForm extends Component {
        onSubmit={this._createNote.bind(this)}
        createNote
       >
+        <select 
+            className="registration-form-input"
+            onChange={this._hadleChangeCategory.bind(this)}
+        >
+          <option>Sem categoria</option>
+          {this.props.categories.map((category, index) => {
+            return <option key={index}>{category}</option>
+          })}
+        </select>
         <input 
           className="registration-form-input" 
           type="text" 
