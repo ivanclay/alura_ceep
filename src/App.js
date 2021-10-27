@@ -31,7 +31,7 @@ class App extends Component {
 
   addCategory(categoryName){
     const newCategories = [...this.state.categories, categoryName];
-    const newState = { categories: newCategories};
+    const newState = {...this.state, categories: newCategories};
     this.setState(newState);
   }
 
